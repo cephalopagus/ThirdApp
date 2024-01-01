@@ -17,6 +17,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:orientation="horizontal">
+        <Button
+            android:visibility="gone"
+            android:backgroundTint="#221b0f"
+            android:layout_marginTop="90dp"
+            android:id="@+id/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Secret"></Button>
         <TextView
             android:id="@+id/text_view"
             android:layout_gravity="bottom|end"

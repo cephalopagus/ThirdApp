@@ -3,6 +3,7 @@ package com.example.thirdapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -24,6 +25,26 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         textView = findViewById(R.id.text_view);
+        if (getIntent().getBooleanExtra("EXIT", false)) {
+            finish();
+        }
+
+
+
+        findViewById(R.id.btn_next).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                intent.putExtra("num", textView.getText().toString());
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.btn_equals).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.btn_next).setVisibility(View.VISIBLE);
+            }
+        });
 
 
     }
